@@ -17,7 +17,7 @@ pip3 install ansible[azure]
 
 mkdir ~/.azure
 echo [default] >> ~/.azure/credentials
-echo subscription_id=<your-subscription_id> >> ~/.azure/credentials
-echo client_id=<security-principal-appid> >> ~/.azure/credentials
-echo secret=<security-principal-password> >> ~/.azure/credentials
-echo tenant=<security-principal-tenant> >> ~/.azure/credentials
+echo "subscription_id=<your-subscription_id>" >> ~/.azure/credentials
+echo "client_id=<security-principal-appid>" >> ~/.azure/credentials
+echo "secret=<security-principal-password>" >> ~/.azure/credentials
+echo "tenant=<security-principal-tenant>" >> ~/.azure/credentials
