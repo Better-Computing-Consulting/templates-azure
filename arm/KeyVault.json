@@ -1,0 +1,40 @@
+{
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "name": {
+            "type": "string"
+        },
+        "accessPolicies": {
+            "type": "array"
+        },
+        "networkAcls": {
+            "type": "object"
+        }
+    },
+    "variables": {},
+    "resources": [
+      {
+        "apiVersion": "2019-09-01",
+        "name": "[parameters('name')]",
+        "location": "[resourceGroup().location]",
+        "type": "Microsoft.KeyVault/vaults",
+        "properties": {
+          "enabledForDeployment": false,
+          "enabledForTemplateDeployment": false,
+          "enabledForDiskEncryption": false,
+          "enableRbacAuthorization": false,
+          "accessPolicies": "[parameters('accessPolicies')]",
+          "tenantId": "[subscription().tenantId]",
+          "sku": {
+            "name": "Standard",
+            "family": "A"
+          },
+          "networkAcls": "[parameters('networkAcls')]"
+        },
+        "tags": {},
+        "dependsOn": []
+      }
+    ],
+    "outputs": {}
+}
