@@ -4,12 +4,6 @@
     "parameters": {
         "name": {
             "type": "string"
-        },
-        "accessPolicies": {
-            "type": "array"
-        },
-        "networkAcls": {
-            "type": "object"
         }
     },
     "variables": {},
@@ -24,13 +18,11 @@
           "enabledForTemplateDeployment": false,
           "enabledForDiskEncryption": false,
           "enableRbacAuthorization": false,
-          "accessPolicies": "[parameters('accessPolicies')]",
           "tenantId": "[subscription().tenantId]",
           "sku": {
             "name": "Standard",
             "family": "A"
-          },
-          "networkAcls": "[parameters('networkAcls')]"
+          }
         },
         "tags": {},
         "dependsOn": []
