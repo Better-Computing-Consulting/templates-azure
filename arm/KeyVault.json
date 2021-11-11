@@ -57,7 +57,7 @@
           "accessPolicies": [
             {
               "tenantId": "[subscription().tenantId]",
-              "objectId": "[parameters('ReadOnlyServiceAccount')]",
+              "objectId": "[parameters('ReadOnlyServiceAccountObjectId')]",
               "permissions": {
                 "keys": [],
                 "secrets": [
@@ -69,7 +69,7 @@
             },
             {
               "tenantId": "[subscription().tenantId]",
-              "objectId": "[parameters('FullAccessAccount')]",
+              "objectId": "[parameters('FullAccessAccountObjectId')]",
               "permissions": {
                 "keys": [
                   "Get",
