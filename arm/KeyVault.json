@@ -12,13 +12,13 @@
       }
     },
     "ReadOnlyServiceAccount": {
-      "type": "string",
+      "type": "secureString",
       "metadata": {
         "description": "Specifies Service Principal objectId with read-only access to the name of the key vault."
       }
     },
     "FullAccessAccount": {
-      "type": "string",
+      "type": "secureString",
       "metadata": {
         "description": "Specifies user account Id with full access to the key vault."
       }
