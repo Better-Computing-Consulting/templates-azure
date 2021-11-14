@@ -40,6 +40,12 @@
       "metadata": {
         "description": "Specifies enable password to elevate access in the ASA device."
       }
+    },
+    "VPNSharedKey": {
+      "type": "secureString",
+      "metadata": {
+        "description": "Specifies shared key for both ends of the VPN tunnel."
+      }
     }
   },
     "variables": {},
@@ -147,6 +153,17 @@
         "name": "[format('{0}/{1}', parameters('name'), 'Enable')]",
         "properties": {
           "value": "[parameters('ASAEnablePassword')]"
+        },
+        "dependsOn": [
+          "[resourceId('Microsoft.KeyVault/vaults', parameters('name'))]"
+        ]
+      },
+      {
+        "type": "Microsoft.KeyVault/vaults/secrets",
+        "apiVersion": "2019-09-01",
+        "name": "[format('{0}/{1}', parameters('name'), 'VPNSharedKey')]",
+        "properties": {
+          "value": "[parameters('VPNSharedKey')]"
         },
         "dependsOn": [
           "[resourceId('Microsoft.KeyVault/vaults', parameters('name'))]"
