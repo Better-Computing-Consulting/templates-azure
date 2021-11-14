@@ -161,7 +161,7 @@
     {
       "type": "Microsoft.KeyVault/vaults/secrets",
       "apiVersion": "2019-09-01",
-      "name": "[format('{0}/{1}', parameters('name'), 'Enable')]",
+      "name": "[format('{0}/{1}', parameters('name'), 'EnablePassword')]",
       "properties": {
         "value": "[parameters('ASAEnablePassword')]"
       },
