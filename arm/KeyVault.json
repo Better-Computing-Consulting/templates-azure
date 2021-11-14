@@ -6,7 +6,7 @@
       "type": "string"
     },
     "AllowedIP": {
-      "type": "string",
+      "type": "secureString",
       "metadata": {
         "description": "Specifies the Public IP with access to the key vault."
       }
@@ -24,7 +24,7 @@
       }
     },
     "ASAUserName": {
-      "type": "string",
+      "type": "secureString",
       "metadata": {
         "description": "Specifies user name to access to ASA device."
       }
