@@ -1,0 +1,54 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "name": {
+      "defaultValue": "AzureLabConn",
+      "type": "String"
+    },
+    "VNetGW": {
+      "defaultValue": "VPNetWest",
+      "type": "String"
+    },
+    "localNetworkGW": {
+      "defaultValue": "ASALAB",
+      "type": "String"
+    },
+    "vpnSharedKey": {
+      "type": "String"
+    }
+  },
+  "variables": {},
+  "resources": [
+    {
+      "type": "Microsoft.Network/connections",
+      "apiVersion": "2019-09-01",
+      "name": "[parameters('name')]",
+      "location": "[resourceGroup().location]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Network/virtualNetworkGateways', parameters('VNetGW'))]",
+        "[resourceId('Microsoft.Network/localNetworkGateways', parameters('localNetworkGW'))]"
+      ],
+      "properties": {
+        "virtualNetworkGateway1": {
+          "id": "[resourceId('Microsoft.Network/virtualNetworkGateways', parameters('VNetGW'))]"
+        },
+        "localNetworkGateway2": {
+          "id": "[resourceId('Microsoft.Network/localNetworkGateways', parameters('localNetworkGW'))]"
+        },
+        "connectionType": "IPsec",
+        "connectionProtocol": "IKEv2",
+        "routingWeight": 10,
+        "sharedKey": "[parameters('vpnSharedKey')]",
+        "enableBgp": true,
+        "useLocalAzureIpAddress": false,
+        "usePolicyBasedTrafficSelectors": false,
+        "ipsecPolicies": [],
+        "trafficSelectorPolicies": [],
+        "expressRouteGatewayBypass": false,
+        "dpdTimeoutSeconds": 0,
+        "connectionMode": "Default"
+      }
+    }
+  ]
+}
