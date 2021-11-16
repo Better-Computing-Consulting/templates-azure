@@ -25,10 +25,7 @@
       "apiVersion": "2019-09-01",
       "name": "[parameters('name')]",
       "location": "[resourceGroup().location]",
-      "dependsOn": [
-        "[resourceId('Microsoft.Network/virtualNetworkGateways', parameters('VNetGW'))]",
-        "[resourceId('Microsoft.Network/localNetworkGateways', parameters('localNetworkGW'))]"
-      ],
+      "dependsOn": [],
       "properties": {
         "virtualNetworkGateway1": {
           "id": "[resourceId('Microsoft.Network/virtualNetworkGateways', parameters('VNetGW'))]"
